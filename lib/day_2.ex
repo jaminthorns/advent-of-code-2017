@@ -29,18 +29,18 @@ defmodule Day2 do
 
   In this example, the spreadsheet's checksum would be 8 + 4 + 6 = 18.
 
-    iex> Day2.solve "5 1 9 5
+    iex> Day2.solve_part_1("5 1 9 5
     ...> 7 5 3
-    ...> 2 4 6 8"
+    ...> 2 4 6 8")
     18
 
   What is the checksum for the spreadsheet in your puzzle input?
   """
 
   @doc """
-  Solve day 2's puzzle.
+  Solve part 1 of day 2's puzzle.
   """
-  def solve(_input) do
+  def solve_part_1(_input) do
     :not_implemented
   end
 end

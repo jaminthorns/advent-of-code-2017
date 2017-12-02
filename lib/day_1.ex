@@ -38,32 +38,105 @@ defmodule Day1 do
   1122 produces a sum of 3 (1 + 2) because the first digit (1) matches the
   second digit and the third digit (2) matches the fourth digit.
 
-    iex> Day1.solve("1122")
+    iex> Day1.solve_part_1("1122")
     3
 
   1111 produces 4 because each digit (all 1) matches the next.
 
-    iex> Day1.solve("1111")
+    iex> Day1.solve_part_1("1111")
     4
 
   1234 produces 0 because no digit matches the next.
 
-    iex> Day1.solve("1234")
+    iex> Day1.solve_part_1("1234")
     0
 
   91212129 produces 9 because the only digit that matches the next one is the
   last digit, 9.
 
-    iex> Day1.solve("91212129")
+    iex> Day1.solve_part_1("91212129")
     9
 
   What is the solution to your captcha?
+
+  --- Part Two ---
+
+  You notice a progress bar that jumps to 50% completion. Apparently, the door
+  isn't yet satisfied, but it did emit a star as encouragement. The instructions
+  change:
+
+  Now, instead of considering the next digit, it wants you to consider the digit
+  halfway around the circular list. That is, if your list contains 10 items,
+  only include a digit in your sum if the digit 10/2 = 5 steps forward matches
+  it. Fortunately, your list has an even number of elements.
+
+  For example:
+
+  1212 produces 6: the list contains 4 items, and all four digits match the
+  digit 2 items ahead.
+
+    iex> Day1.solve_part_2("1212")
+    6
+
+  1221 produces 0, because every comparison is between a 1 and a 2.
+
+    iex> Day1.solve_part_2("1221")
+    0
+
+  123425 produces 4, because both 2s match each other, but no other digit has a
+  match.
+
+    iex> Day1.solve_part_2("123425")
+    4
+
+  123123 produces 12.
+
+    iex> Day1.solve_part_2("123123")
+    12
+
+  12131415 produces 4.
+
+    iex> Day1.solve_part_2("12131415")
+    4
+
+  What is the solution to your new captcha?
   """
 
   @doc """
-  Solve day 1's puzzle.
+  Solve part 1 of day 1's puzzle.
   """
-  def solve(_input) do
-    :not_implemented
+  def solve_part_1(input) do
+    input
+    |> get_digits
+    |> sum_matching_digits(-1)
+  end
+
+  @doc """
+  Solve part 2 of day 1's puzzle.
+  """
+  def solve_part_2(input) do
+    digits = get_digits(input)
+    distance = digits |> length |> div(2)
+
+    sum_matching_digits(digits, distance)
+  end
+
+  defp get_digits(input) do
+    input
+    |> String.graphemes
+    |> Enum.map(&String.to_integer/1)
+  end
+
+  defp sum_matching_digits(digits, distance) do
+    digits
+    |> Stream.zip(rotate(digits, distance))
+    |> Stream.filter(fn {current, match} -> current == match end)
+    |> Stream.map(fn {current, _match} -> current end)
+    |> Enum.sum
+  end
+
+  defp rotate(enumerable, count) do
+    {right, left} = Enum.split(enumerable, -count)
+    left ++ right
   end
 end
