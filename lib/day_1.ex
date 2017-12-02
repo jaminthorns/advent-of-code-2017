@@ -108,7 +108,7 @@ defmodule Day1 do
   def solve_part_1(input) do
     input
     |> get_digits
-    |> sum_matching_digits(-1)
+    |> sum_matching_digits(1)
   end
 
   @doc """
@@ -136,7 +136,7 @@ defmodule Day1 do
   end
 
   defp rotate(enumerable, count) do
-    {right, left} = Enum.split(enumerable, -count)
+    {right, left} = Enum.split(enumerable, count)
     left ++ right
   end
 end
