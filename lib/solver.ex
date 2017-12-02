@@ -5,10 +5,10 @@ defmodule Solver do
   Calls the `solve/1` function on the `DayN` module using the input from the
   `inputs/day_n.txt` file.
   """
-  def solve(day) do
+  def solve(day, part) do
     day
     |> get_input
-    |> call_solve(day)
+    |> call_solve(day, part)
   end
 
   defp get_input(day) do
@@ -17,9 +17,10 @@ defmodule Solver do
     |> String.trim
   end
 
-  defp call_solve(input, day) do
-    "Elixir.Day#{day}"
-    |> String.to_existing_atom
-    |> apply(:solve, [input])
+  defp call_solve(input, day, part) do
+    module = String.to_existing_atom("Elixir.Day#{day}")
+    function = String.to_existing_atom("solve_part_#{part}")
+
+    apply(module, function, [input])
   end
 end
