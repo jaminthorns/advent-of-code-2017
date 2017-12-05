@@ -58,8 +58,7 @@ defmodule Day4 do
   def solve_part_1(input) do
     input
     |> get_passphrases
-    |> Enum.filter(&no_duplicates?/1)
-    |> length
+    |> Enum.count(&no_duplicates?/1)
   end
 
   @doc """
@@ -68,8 +67,7 @@ defmodule Day4 do
   def solve_part_2(input) do
     input
     |> get_passphrases
-    |> Enum.filter(&no_anagrams?/1)
-    |> length
+    |> Enum.count(&no_anagrams?/1)
   end
 
   defp get_passphrases(input) do

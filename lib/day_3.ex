@@ -165,7 +165,7 @@ defmodule Day3 do
     abs(x) + abs(y)
   end
 
-  def sum_surrounding(grid, {x, y}) do
+  defp sum_surrounding(grid, {x, y}) do
     for offset_x <- -1..1,
         offset_y <- -1..1,
         offset_x != 0 or offset_y != 0 do
