@@ -11,11 +11,11 @@ defmodule Day3 do
   location marked 1 and then counting up while spiraling outward. For example,
   the first few squares are allocated like this:
 
-  17  16  15  14  13
-  18   5   4   3  12
-  19   6   1   2  11
-  20   7   8   9  10
-  21  22  23---> ...
+      17  16  15  14  13
+      18   5   4   3  12
+      19   6   1   2  11
+      20   7   8   9  10
+      21  22  23---> ...
 
   While this is very space-efficient (no squares are skipped), requested data
   must be carried back to square 1 (the location of the only access port for
@@ -25,22 +25,22 @@ defmodule Day3 do
 
   For example:
 
-  Data from square 1 is carried 0 steps, since it's at the access port.
+  - Data from square 1 is carried 0 steps, since it's at the access port.
 
     iex> Day3.solve_part_1("1")
     0
 
-  Data from square 12 is carried 3 steps, such as: down, left, left.
+  - Data from square 12 is carried 3 steps, such as: down, left, left.
 
     iex> Day3.solve_part_1("12")
     3
 
-  Data from square 23 is carried only 2 steps: up twice.
+  - Data from square 23 is carried only 2 steps: up twice.
 
     iex> Day3.solve_part_1("23")
     2
 
-  Data from square 1024 must be carried 31 steps.
+  - Data from square 1024 must be carried 31 steps.
 
     iex> Day3.solve_part_1("1024")
     31
@@ -57,31 +57,31 @@ defmodule Day3 do
 
   So, the first few squares' values are chosen as follows:
 
-  Square 1 starts with the value 1.
+  - Square 1 starts with the value 1.
 
     iex> Day3.solve_part_2("1")
     2
 
-  Square 2 has only one adjacent filled square (with value 1), so it also stores
-  1.
+  - Square 2 has only one adjacent filled square (with value 1), so it also
+    stores 1.
 
     iex> Day3.solve_part_2("2")
     4
 
-  Square 3 has both of the above squares as neighbors and stores the sum of
-  their values, 2.
+  - Square 3 has both of the above squares as neighbors and stores the sum of
+    their values, 2.
 
     iex> Day3.solve_part_2("3")
     4
 
-  Square 4 has all three of the aforementioned squares as neighbors and stores
-  the sum of their values, 4.
+  - Square 4 has all three of the aforementioned squares as neighbors and stores
+    the sum of their values, 4.
 
     iex> Day3.solve_part_2("4")
     5
 
-  Square 5 only has the first and fourth squares as neighbors, so it gets the
-  value 5.
+  - Square 5 only has the first and fourth squares as neighbors, so it gets the
+    value 5.
 
     iex> Day3.solve_part_2("5")
     10
@@ -89,11 +89,11 @@ defmodule Day3 do
   Once a square is written, its value does not change. Therefore, the first few
   squares would receive the following values:
 
-  147  142  133  122   59
-  304    5    4    2   57
-  330   10    1    1   54
-  351   11   23   25   26
-  362  747  806--->   ...
+      147  142  133  122   59
+      304    5    4    2   57
+      330   10    1    1   54
+      351   11   23   25   26
+      362  747  806--->   ...
 
   What is the first value written that is larger than your puzzle input?
   """

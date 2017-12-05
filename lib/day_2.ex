@@ -17,9 +17,9 @@ defmodule Day2 do
 
   For example, given the following spreadsheet:
 
-  5 1 9 5
-  7 5 3
-  2 4 6 8
+      5 1 9 5
+      7 5 3
+      2 4 6 8
 
   - The first row's largest and smallest values are 9 and 1, and their
     difference is 8.
@@ -54,9 +54,9 @@ defmodule Day2 do
 
   For example, given the following spreadsheet:
 
-  5 9 2 8
-  9 4 7 3
-  3 8 6 5
+      5 9 2 8
+      9 4 7 3
+      3 8 6 5
 
   - In the first row, the only two numbers that evenly divide are 8 and 2; the
     result of this division is 4.
