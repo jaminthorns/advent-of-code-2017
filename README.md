@@ -1,21 +1,16 @@
-# AdventOfCode2017
-
-**TODO: Add description**
+# Advent Of Code 2017 - Elixir Edition
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `advent_of_code_2017` to your list of dependencies in `mix.exs`:
+Run `mix deps.get` to fetch dependencies.
+Run `mix compile` to compile the application.
 
-```elixir
-def deps do
-  [
-    {:advent_of_code_2017, "~> 0.1.0"}
-  ]
-end
-```
+## Testing
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/advent_of_code_2017](https://hexdocs.pm/advent_of_code_2017).
+Run `mix test` to run tests.
 
+## Solving Puzzles
+
+Run `iex -S mix` to run an IEx session.
+Run `Solver.solve(day, part)`, where `day` is the day of the puzzle (`1` - `25`)
+and `part` is the part of the puzzle (`1` or `2`).
