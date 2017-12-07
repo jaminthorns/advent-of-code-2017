@@ -6,4 +6,5 @@ defmodule Test do
   doctest Day3
   doctest Day4
   doctest Day5
+  doctest Day6
 end
