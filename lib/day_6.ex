@@ -80,7 +80,7 @@ defmodule Day6 do
   def solve_part_1(input) do
     {get_banks(input), MapSet.new}
     |> Stream.iterate(&reallocate_banks_and_record_prev/1)
-    |> Stream.take_while(& not in_prev_state?(&1))
+    |> Stream.take_while(&not in_prev_state?(&1))
     |> Enum.count
   end
 
