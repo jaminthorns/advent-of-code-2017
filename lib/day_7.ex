@@ -158,7 +158,7 @@ cntj (57)
 
   defp get_info(input) do
     input
-    |> String.split("\n")
+    |> String.split("\n", trim: true)
     |> Stream.map(&Regex.named_captures(@info_pattern, &1))
     |> Stream.map(fn program -> {
       program["name"],
