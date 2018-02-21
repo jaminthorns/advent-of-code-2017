@@ -18,8 +18,8 @@ defmodule Solver do
   end
 
   defp call_solve(input, day, part) do
-    module = String.to_existing_atom("Elixir.Day#{day}")
-    function = String.to_existing_atom("solve_part_#{part}")
+    module = String.to_atom("Elixir.Day#{day}")
+    function = String.to_atom("solve_part_#{part}")
 
     apply(module, function, [input])
   end
